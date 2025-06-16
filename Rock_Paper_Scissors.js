@@ -23,24 +23,39 @@ async function main() {
     console.log("========================================");
     console.log(" You will play against the computer.");
     console.log("----------------------------------------");
+
+    // Prompt user for name
     let name = await ask(" Please enter your name: ");
+
+    // Game instructions
+    console.log("----------------------------------------");
     console.log(" The first to win 3 rounds wins the game.");
     console.log("----------------------------------------");
     console.log(" Pick a number to choose your move:");
     console.log("");
     
     while (true) {
+        // Display current score and round
         console.log("============================================================");
         console.log(` \t\t${name} ${userwins} | Round ${round} | Computer ${computerwins}`);
         console.log("============================================================");
+
+        // Ask user for their choice
         let answer = await ask("1. Rock 2. Paper 3. Scissors: ");
+
+        // Parsing user input to type int
         let choice = parseInt(answer);
+
+        // Generate computer's choice
         let computerChoice = Math.floor(Math.random() * 3) + 1;
+
+        // Validate user input
         if (choice < 1 || choice > 3) {
             console.log("Invalid choice. Please choose 1, 2, or 3.");
             continue;
         }
         
+        // Game logic to determine the winner of the round
         if (choice === computerChoice) {
             console.log("It's a tie!");
             continue;
@@ -64,8 +79,12 @@ async function main() {
             computerwins++;
         }
 
+        // Gameover conditions
         if (userwins == 3) {
+            // Close the input stream
             input.close();
+
+            // Display final results
             console.log("========================================");
             console.log(`${name}'s wins: ${userwins} | Computer wins: ${computerwins}`);
             console.log(`Congratulations ${name}! You win the game!`);
@@ -74,13 +93,18 @@ async function main() {
             break;
         }
         if (computerwins == 3) {
+            // Close the input stream 
             input.close();
+
+            // Display final results
             console.log("========================================");
             console.log(`Your wins: ${userwins} | Computer wins: ${computerwins}`);
             console.log("Computer Wins! Better luck next time.");
             console.log("========================================");
             break;
         }
+
+        // Increment round number
         round++;
     }
 }

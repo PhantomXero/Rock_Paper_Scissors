@@ -19,7 +19,7 @@ This is a simple command-line Rock, Paper, Scissors game built with Node.js as p
 3. **Navigate to the project folder in your terminal:**
 
    ```bash
-   cd "/home/phantomx/Documents/projects/web/javascript/ Rock Paper Scissors"
+   cd "/Rock_Paper_Scissors"
    ```
 
 4. **Run the game:**
