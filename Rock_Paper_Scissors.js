@@ -11,8 +11,8 @@ const ask = (question) => {
 
 async function main() {
     // Initialize user and computer win counters
-    let userwins = 0;
-    let computerwins = 0;
+    let userWins = 0;
+    let computerWins = 0;
 
     // keep round state
     let round = 1;
@@ -37,7 +37,7 @@ async function main() {
     while (true) {
         // Display current score and round
         console.log("============================================================");
-        console.log(` \t\t${name} ${userwins} | Round ${round} | Computer ${computerwins}`);
+        console.log(` \t\t${name} ${userWins} | Round ${round} | Computer ${computerWins}`);
         console.log("============================================================");
 
         // Ask user for their choice
@@ -61,44 +61,44 @@ async function main() {
             continue;
         } else if (choice === 1 && computerChoice === 3) {
             console.log("You win this row! Rock crushes Scissors.");
-            userwins++;
+            userWins++;
         } else if (choice === 2 && computerChoice === 1) {
             console.log("You win this row! Paper covers Rock.");
-            userwins++;
+            userWins++;
         } else if (choice === 3 && computerChoice === 2) {
             console.log("You win this row! Scissors cut Paper.");
-            userwins++;
+            userWins++;
         } else if (computerChoice === 1 && choice === 3) {
             console.log("You lose this row! Rock crushes Scissors.");
-            computerwins++;
+            computerWins++;
         } else if (computerChoice === 2 && choice === 1) {
             console.log("You lose this row! Paper covers Rock.");
-            computerwins++;
+            computerWins++;
         } else {
             console.log("You lose this row! Scissors cut Paper.");
-            computerwins++;
+            computerWins++;
         }
 
         // Gameover conditions
-        if (userwins == 3) {
+        if (userWins == 3) {
             // Close the input stream
             input.close();
 
             // Display final results
             console.log("========================================");
-            console.log(`${name}'s wins: ${userwins} | Computer wins: ${computerwins}`);
+            console.log(`${name}'s wins: ${userWins} | Computer wins: ${computerWins}`);
             console.log(`Congratulations ${name}! You win the game!`);
             console.log("========================================");
             
             break;
         }
-        if (computerwins == 3) {
+        if (computerWins == 3) {
             // Close the input stream 
             input.close();
 
             // Display final results
             console.log("========================================");
-            console.log(`Your wins: ${userwins} | Computer wins: ${computerwins}`);
+            console.log(`Your wins: ${userWins} | Computer wins: ${computerWins}`);
             console.log("Computer Wins! Better luck next time.");
             console.log("========================================");
             break;
